@@ -1,5 +1,6 @@
+#include<bits/stdc++.h>
 #include<iostream>
-#include<string.h>
+
 using namespace std;
 bool compareString(string a,string b){
     if(a.length()!=b.length()){
