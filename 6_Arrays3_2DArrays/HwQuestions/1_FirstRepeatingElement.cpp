@@ -15,7 +15,7 @@ int main()
     {
         if (hash[arr[i]] > 1)
         {
-            cout << "Ans is " << arr[i] << endl;
+            cout << "Ans is " << i << endl;
             break;
         }
     }
