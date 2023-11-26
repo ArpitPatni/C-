@@ -16,9 +16,9 @@ void tranposeOfMatrix(int arr[3][3], int row, int col, int transpose[3][3])
     {
         for (int j = 0; j < col; j++)
         {
-            cout<<transpose[i][j]<<" ";
+            cout << transpose[i][j] << " ";
         }
-        cout<<endl;
+        cout << endl;
     }
 }
 int main()
