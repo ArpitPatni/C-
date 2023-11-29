@@ -28,7 +28,7 @@ int solve(vector<int>arr){
         }
         mid=s+(e-s)/2;
     }
-    return -1;
+    return s;
 }
 int main(){
     vector<int> arr{1,1,2,2,3,3,4,4,3,600,600,4,4};
