@@ -8,8 +8,9 @@ int factorial(int n){
 }
 int main(){
     int n;
+    cout<<"Enter the number"<<endl;
     cin>>n;
-    int output=factorial(n);
-    cout<<"Factorial is "<<output<<endl;
+    int ans=factorial(n);
+    cout<<"Ans is "<<ans<<endl;
     return 0;
 }
