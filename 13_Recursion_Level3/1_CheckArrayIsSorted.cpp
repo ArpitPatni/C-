@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
-bool checkSorted(vector<int> &arr, int n, int i)
+bool checkSorted(vector<int> &arr, int& n, int i)
 {
-    if (i == n - 1)
+    if (i ==n-1)
     {
         return true;
     }
@@ -14,7 +15,7 @@ bool checkSorted(vector<int> &arr, int n, int i)
 }
 int main()
 {
-    vector<int> arr{100, 20, 30, 40, 50};
+    vector<int> arr{10, 20, 30, 40, 50};
     int n = arr.size();
     int i = 0;
     bool ans = checkSorted(arr, n, i);

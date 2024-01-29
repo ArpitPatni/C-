@@ -6,9 +6,11 @@ void printArray(int arr[],int n,int i){
         return;
     }
     //1 case solve krdo
-    cout<<arr[i]<<" ";
-    //baki recursion sambhal lega    
+    
+    //baki recursion sambhal lega  
+    cout<<arr[i]<<" ";  
     printArray(arr,n,i+1);
+   
 
 }
 int main(){

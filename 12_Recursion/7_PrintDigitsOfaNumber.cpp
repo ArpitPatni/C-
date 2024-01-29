@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 void printDigits(int n){
     if(n==0){
@@ -7,6 +8,8 @@ void printDigits(int n){
     int digit=n%10;
     printDigits(n/10);
      cout<<digit<<endl;
+    
+    
 }
 int main(){
     int n;

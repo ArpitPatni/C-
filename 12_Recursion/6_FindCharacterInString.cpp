@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 int checkIfPresent(string& str,char& target,int i,int& count){
     if(i>=str.length()){
