@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
 int solve(int n, int x, int y, int z)
 {
