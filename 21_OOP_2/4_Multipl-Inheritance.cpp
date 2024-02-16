@@ -2,11 +2,11 @@
 using namespace std;
 class A{
 public:
-int physics;
+int chemistry=10;
 };
 class B{
 public:
-int chemistry;
+int chemistry=2;
 };
 
 class C:public A,public B{
@@ -14,9 +14,9 @@ class C:public A,public B{
     int maths;
 };
 int main(){
-C*obj=new C;
-cout<<obj->physics<<endl;
-cout<<obj->chemistry<<endl;
-cout<<obj->maths<<endl;
+C obj;
+//scope resolution operator 
+//This is famous diamond problem from Inheritance
+cout<<obj.A::chemistry<<endl;
 return 0;
 }
