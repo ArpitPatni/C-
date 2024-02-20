@@ -5,7 +5,11 @@ class Node
 public:
     int data;
     Node *next;
-
+    Node()
+    {
+        this->data = 0;
+        this->next = NULL;
+    }
     Node(int data)
     {
         this->data = data;
@@ -22,14 +26,14 @@ void print(Node *head)
         temp = temp->next;
     }
 }
-void insertAtTail(Node *&tail, int data)
+void insertAtTail(Node *&head, Node * &tail, int data)
 {
-    // if(head==NULL){
-    //     Node *newNode=new Node(data);
-    //     head=newNode;
-    //     tail=newNode;
-    //     return;
-    // }
+    if(head==NULL){
+        Node *newNode=new Node(data);
+        head=newNode;
+        tail=newNode;
+        return;
+    }
     // step 1 create a new node
 
     Node *newNode = new Node(data);
@@ -39,8 +43,14 @@ void insertAtTail(Node *&tail, int data)
     // Update the tail to the end
     tail = newNode;
 }
-void insertAtHead(Node *&head, int data)
+void insertAtHead(Node *&head, Node *&tail, int data)
 {
+    if(head==NULL){
+        Node *newNode=new Node(data);
+        head=newNode;
+        tail=newNode;
+        return;
+    }
     // step 1 create a new node
     Node *newNode = new Node(data);
 
@@ -51,39 +61,68 @@ void insertAtHead(Node *&head, int data)
     head = newNode;
 }
 
-void insertAtPosition(Node * &head,Node* &tail,int position,int data){
-    if(position==1){
-        insertAtHead(head,data);
-        return;
-    }
-    Node *temp=head;
-    int count=1;
-    while(count<position-1){
+int findLengthOfLinkedList(Node *head){
+    int len=0;
+    Node*temp=head;
+    while(temp!=NULL){
         temp=temp->next;
-        count++;
+        len++;
     }
-    if(temp->next==NULL){
-        insertAtTail(tail,data);
+    return len;
+}
+void insertAtPosition(Node * &head,Node* &tail,int position,int data){
+    if(head==NULL){
+        Node* newNode=new Node(data);
+        head=newNode;
+        tail=newNode;
+    }
+    if(position==0){
+        insertAtHead(head,tail,data);
         return;
     }
-    Node * newNode=new Node(data);
-    newNode->next=temp->next;
-    temp->next=newNode;
+    int len=findLengthOfLinkedList(head);
+
+    if(position>=len){
+        insertAtTail(head,tail,data);
+        tail = tail->next;
+        return;
+    }
+
+    //step 1 maintain a current and prev node
+    int i=1;
+    Node* prev=head;
+    while(i<position-1){
+        prev=prev->next;
+        i++;
+    }
+    Node*curr=prev->next;
+
+    //Step 2 create a new node
+    Node* newNode=new Node(data);
+
+    //step 3
+    newNode->next=curr;
+
+    //step 4
+    prev->next=newNode;
+
 }
 int main()
 {
-    Node * newNode=new Node(10);
-    Node*head=newNode;
-    Node*tail=newNode;
 
-    // insertAtHead(head,20);
-    // insertAtHead(head,30);
-    // insertAtHead(head,40);
-    // insertAtHead(head,50);
+    Node *head = NULL;
+    Node *tail = NULL;
 
-    insertAtTail(tail, 12);
-    insertAtTail(tail, 15);
-    insertAtPosition(head,tail,4,22);
-    print(head);
+    insertAtHead(head,tail,20);
+    insertAtHead(head,tail,50);
+    insertAtHead(head,tail,60);
+    insertAtHead(head,tail,90);
+
+    insertAtTail(head, tail, 77);
+        print(head);
+        cout<<endl;
+    insertAtPosition(head,tail,3,101);
+        print(head);
+        cout<<endl;
     return 0;
 }
