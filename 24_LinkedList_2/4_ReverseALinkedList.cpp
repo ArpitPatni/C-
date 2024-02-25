@@ -60,19 +60,53 @@ void insertAtHead(Node *&head, Node *&tail, int data)
     // update the head pointer to the start
     head = newNode;
 }
+Node* reverseUsingRecursion(Node*  &prev,Node* &curr){
+    if(curr==NULL){
+        return prev;
+    }
+
+    //1 case solve baaki recursive call;
+    Node*forwardNode=curr->next;
+    curr->next=prev;
+    return reverseUsingRecursion(curr,forwardNode);
+}
+
+Node* reverseUsingLoop(Node*head){
+    Node* prev=NULL;
+    Node*curr=head;
+    while(curr!=NULL){
+        Node*temp=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=temp;
+    }
+    return prev;
+}
+
 int main()
 {
 
     Node *head = NULL;
     Node *tail = NULL;
 
-    insertAtHead(head,tail,20);
-    insertAtHead(head,tail,30);
-    insertAtHead(head,tail,40);
-    insertAtHead(head,tail,50);
+    // insertAtHead(head,tail,20);
+    // insertAtHead(head,tail,30);
+    // insertAtHead(head,tail,40);
+    // insertAtHead(head,tail,50);
+    // insertAtHead(head,tail,60);
 
-    // insertAtTail(head, tail, 10);
+    insertAtTail(head, tail, 90);
+    insertAtTail(head, tail, 60);
+    insertAtTail(head, tail, 50);
+    insertAtTail(head, tail, 20);
+    insertAtTail(head, tail, 77);
 
     print(head);
+    Node* prev=NULL;
+    Node* curr=head;
+    head=reverseUsingLoop(head);
+    cout<<endl;
+    print(head);
+    cout<<endl;
     return 0;
 }
