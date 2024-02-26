@@ -147,6 +147,7 @@ void deleteFromPosition(Node* &head,Node* &tail,int position){
     //deleting last node
     if(position==len){
         Node*temp=tail;
+        //update tail 
         tail=temp->prev;
         tail->next=NULL;
         temp->prev=NULL;
